@@ -63,18 +63,21 @@ function App() {
   return (
     <div className="App container-fluid">
       <div className='row'>
-      <div className="app-title text-center bg-warning col">
-        <h1>Markdown-Previewer</h1>
-      </div>
+        <div className="app-title text-center bg-warning col">
+          <h1>Markdown-Previewer</h1>
+        </div>
       </div>
       <div className='row'>
-        <div className='col-6 bg-dark'>
-          <textarea id='editor' onChange={e => setInput(e.target.value)} value={input}></textarea>
+        <div className='col-5 bg-dark d-flex flex-column'>
+          <div className='form-group d-flex flex-column flex-grow-1'>
+            <textarea id='editor' className="form-control my-3 flex-grow-1" onChange={e => setInput(e.target.value)} value={input}></textarea>
+          </div>
         </div>
-        <div className='col-6 bg-light' id="preview" 
+        <div className='col-7 bg-secondary'>
+          <div id="preview" 
         dangerouslySetInnerHTML={{
           __html: marked(input)
-        }}>
+        }} className='bg-light my-3'></div>
         </div>  
       </div>
     </div>
