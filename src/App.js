@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './App.scss';
 import { marked } from 'marked'; //markdown translator API
 
+marked.use({
+  breaks: true
+});
 
 function App() {
   const [input, setInput] = useState(`
@@ -38,10 +41,23 @@ function App() {
   ## Images
   - To add an image, add an exclamation mark (!), followed by alt text in brackets, and the path or URL to the image asset in parentheses. You can optionally add a title in quotation marks after the path or URL.
 
-  
+  ![A couple of penguins looking at the camera](https://images.pexels.com/photos/641283/pexels-photo-641283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
 
+  ## Code
+  - To denote a word or phrase as code, enclose it in backticks (\`).
 
-   
+  At the command prompt, type \`nano\`.
+
+  - To create code blocks type 3 back ticks \\\` , insert the code and close it with other 3 back ticks \\\`
+
+  \`\`\`
+
+    <html>
+      <head>
+      </head>
+    </html>
+
+  \`\`\`     
   `);
 
   return (
